@@ -56,7 +56,14 @@ const userControllers = {
       });
     }
   },
-  logOut: (req, res) => {}
+  logOut: (req, res) => {
+    res.clearCookie('id');
+    res.clearCookie('token');
+    res.status(200).json({
+      ok: true,
+      message: `User ${emailExist.email} has terminated the session`
+    });
+  }
 };
 
 export default userControllers;
