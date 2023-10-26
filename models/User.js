@@ -5,12 +5,12 @@ import users from '../data/users.js';
 class User {
   constructor(email, password) {
     this.id = newId();
-    this.name = email;
+    this.email = email;
     this.password = password;
   }
 
   static getUserByEmail = (email) => {
-    return users.filter((user) => user.email === email);
+    return users.find((user) => user.email === email);
   };
 
   addUser() {
