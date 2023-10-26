@@ -4,6 +4,8 @@ import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
 import jwt from 'jsonwebtoken';
 
+import userRouter from './routers/user.js';
+
 // env configuring
 dotenv.config();
 const PORT = process.env.PORT;
@@ -17,6 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // use.router
+app.use(userRouter);
 
 // handle 404
 app.use('*', (req, res) => {
