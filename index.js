@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser';
 import jwt from 'jsonwebtoken';
 
 import userRouter from './routers/user.js';
+import verifyToken from './middleware/middleware.js';
 
 // env configuring
 dotenv.config();
@@ -20,6 +21,7 @@ app.use(cookieParser());
 
 // use.router
 app.use(userRouter);
+app.use(verifyToken);
 
 // handle 404
 app.use('*', (req, res) => {
