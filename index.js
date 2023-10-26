@@ -5,7 +5,8 @@ import cookieParser from 'cookie-parser';
 import jwt from 'jsonwebtoken';
 
 import userRouter from './routers/user.js';
-import verifyToken from './middleware/middleware.js';
+import verifyToken from './middleware/verifyToken.js';
+import logger from './middleware/logger.js';
 
 // env configuring
 dotenv.config();
@@ -19,8 +20,12 @@ app.use(json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
+// middleware
+app.use(logger);
+
 // use.router
 app.use(userRouter);
+
 app.use(verifyToken);
 
 // handle 404
