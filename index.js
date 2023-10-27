@@ -5,6 +5,8 @@ import cookieParser from 'cookie-parser';
 import jwt from 'jsonwebtoken';
 
 import userRouter from './routers/user.js';
+import productRouter from './routers/product.js';
+
 import verifyToken from './middleware/verifyToken.js';
 import logger from './middleware/logger.js';
 
@@ -25,7 +27,9 @@ app.use(logger);
 
 // use.router
 app.use(userRouter);
+app.use(productRouter);
 
+// verify token
 app.use(verifyToken);
 
 // handle 404

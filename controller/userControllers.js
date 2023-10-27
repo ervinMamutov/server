@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 
-import User from '../models/User.js';
+import User from '../models/user.js';
 import validateEmail from '../utils/validateEmail.js';
 import validatePassword from '../utils/validatePassword.js';
 import matchPasswords from '../utils/matchPasswords.js';
