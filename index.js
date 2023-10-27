@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 
 import cookieParser from 'cookie-parser';
 import jwt from 'jsonwebtoken';
+import cors from 'cors';
 
 import userRouter from './routers/user.js';
 import productRouter from './routers/product.js';
@@ -16,6 +17,9 @@ const PORT = process.env.PORT;
 
 // express initialization
 const app = express();
+
+// cors
+app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
 
 // body parser
 app.use(json());
