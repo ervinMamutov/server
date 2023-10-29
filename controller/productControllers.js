@@ -3,18 +3,19 @@ import Product from '../models/product.js';
 const productControllers = {
   getProducts: (req, res) => {
     const products = Product.getProducts();
-    console.log(products);
     res.status(200).json({ ok: true, products: products });
   },
   addProduct: (req, res) => {
     const { category, name, img, price } = req.body;
-    if (!category || (!name && !img && !price)) {
+    if (!category && !name && !img && !price) {
       res
         .status(402)
         .json({ ok: false, message: 'Fill in all product fields' });
     } else {
       const newProduct = new Product(category, name, img, price);
+      console.log(newProduct);
       newProduct.addProduct();
+      console.log(newProduct);
       res
         .status(201)
         .json({ ok: true, message: `The product ${name} added successfully` });
@@ -59,8 +60,3 @@ const productControllers = {
 };
 
 export default productControllers;
-
-/* getCategory: (req, res) => {
-    const { category } = req.body;
-    console.log(category);
-  }, */

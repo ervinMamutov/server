@@ -44,8 +44,15 @@ const userControllers = {
             { user: emailExist },
             process.env.SECRET_TOKEN_KEY
           );
-          res.cookie('id', emailExist.id);
-          res.cookie('token', token, { httpOnly: true });
+          res.cookie('id', emailExist.id, {
+            secure: true,
+            sameSite: 'None'
+          });
+          res.cookie('token', token, {
+            httpOnly: true,
+            secure: true,
+            sameSite: 'None'
+          });
           res.status(200).json({ ok: true, token: token, id: emailExist.id });
         }
       });

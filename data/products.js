@@ -4,7 +4,7 @@ const products = [
   {
     id: newId(),
     category: 'electronic',
-    name: 'HP Elite Dragonfly 13.5" G3',
+    name: 'HP Elite Dragonfly 13.5 G3',
     img: 'https://www.hp.com/be-nl/shop/media/catalog/product/c/0/c08145894.png?store=be-nl&image-type=image&auto=webp&format=pjpg&width=1600&height=2000&fit=bounds&dpr=1',
     price: 2149
   },

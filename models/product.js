@@ -3,7 +3,7 @@ import { v4 as newId } from 'uuid';
 import products from '../data/products.js';
 
 class Product {
-  constructor(id, category, name, img, price) {
+  constructor(category, name, img, price) {
     this.id = newId();
     this.category = category;
     this.name = name;
